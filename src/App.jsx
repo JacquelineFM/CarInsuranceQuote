@@ -1,9 +1,7 @@
+import AppInsurance from "./components/AppInsurance";
+
 const App = () => {
-  return (
-    <div>
-      <h1>App</h1>
-    </div>
-  );
+  return <AppInsurance />;
 };
 
 export default App;
