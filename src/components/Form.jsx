@@ -1,6 +1,10 @@
 import { BRANDS, YEARS, PLANS } from "../constants";
+import useQuote from "../hooks/useQuote";
 
 const Form = () => {
+  const { data, handleChangeData } = useQuote();
+  const { brand, year, plan } = data;
+
   return (
     <form>
       <div className="mb-5">
@@ -10,6 +14,8 @@ const Form = () => {
         <select
           name="brand"
           className="block w-full p-3 bg-white border border-gray-300 focus:ring-blue-600 focus:ring-1 focus:border-blue-600"
+          value={brand}
+          onChange={(e) => handleChangeData(e)}
         >
           <option value="">-- Select brand --</option>
           {BRANDS.map((brand) => (
@@ -26,6 +32,8 @@ const Form = () => {
         <select
           name="year"
           className="block w-full p-3 bg-white border border-gray-300 focus:ring-blue-600 focus:ring-1 focus:border-blue-600"
+          value={year}
+          onChange={(e) => handleChangeData(e)}
         >
           <option value="">-- Select year --</option>
           {YEARS.map((year) => (
@@ -46,7 +54,13 @@ const Form = () => {
               className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r"
             >
               <div className="flex items-center pl-3">
-                <input id={plan.id} type="radio" value={plan.id} name="plan" />
+                <input
+                  id={plan.id}
+                  type="radio"
+                  value={plan.id}
+                  name="plan"
+                  onChange={(e) => handleChangeData(e)}
+                />
                 <label htmlFor={plan.id} className="p-3 w-full">
                   {plan.name}
                 </label>
