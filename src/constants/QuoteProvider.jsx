@@ -3,6 +3,7 @@ import { useState, createContext } from "react";
 const QuoteContext = createContext();
 
 const QuoteProvider = ({ children }) => {
+  const [error, setError] = useState("");
   const [data, setData] = useState({
     brand: "",
     year: "",
@@ -21,7 +22,7 @@ const QuoteProvider = ({ children }) => {
   };
 
   return (
-    <QuoteContext.Provider value={{ data, handleChangeData }}>
+    <QuoteContext.Provider value={{ error, setError, data, handleChangeData }}>
       {children}
     </QuoteContext.Provider>
   );
