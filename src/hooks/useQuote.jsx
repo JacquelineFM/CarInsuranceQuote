@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import QuoteContext from "../constants/QuoteProvider";
+import QuoteContext from "../context/QuoteProvider";
 
 /**
  * UseQuote() is a function that returns the useContext() function, which is passed the QuoteContext

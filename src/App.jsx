@@ -1,4 +1,4 @@
-import { QuoteProvider } from "./constants/QuoteProvider";
+import { QuoteProvider } from "./context/QuoteProvider";
 import AppInsurance from "./components/AppInsurance";
 
 const App = () => {

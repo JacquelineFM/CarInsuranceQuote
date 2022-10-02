@@ -1,9 +1,10 @@
 import Form from "./Form";
 import Spinner from "./Spinner";
+import Result from "./Result";
 import useQuote from "../hooks/useQuote";
 
 const AppInsurance = () => {
-  const { result, loading } = useQuote();
+  const { loading } = useQuote();
 
   return (
     <>
@@ -12,11 +13,11 @@ const AppInsurance = () => {
           Car Insurance <span className="text-blue-600">Quote</span>
         </h1>
       </header>
-      <main className="bg-white rounded-lg shadow sm:w-2/5 md:w-4/5 lg:w-2/5 sm:mx-auto mx-6 sm:overflow-hidden">
-        <div className="px-4 py-8 sm:px-10">
+      <main className="sm:w-3/5 md:w-4/5 lg:w-3/5 sm:mx-auto mx-6 sm:overflow-hidden grid-cols-1 grid lg:grid-flow-col lg:auto-cols-auto gap-6">
+        <div className="bg-white rounded-lg shadow px-4 py-8 sm:px-10">
           <Form />
-          {loading ? <Spinner /> : result}
         </div>
+        {loading ? <Spinner /> : <Result />}
       </main>
     </>
   );
