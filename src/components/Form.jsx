@@ -3,7 +3,8 @@ import useQuote from "../hooks/useQuote";
 import Error from "./Error";
 
 const Form = () => {
-  const { error, setError, data, handleChangeData } = useQuote();
+  const { error, setError, data, handleChangeData, quoteInsurance } =
+    useQuote();
   const { brand, year } = data;
 
   const handleSubmit = (e) => {
@@ -15,6 +16,7 @@ const Form = () => {
     }
 
     setError("");
+    quoteInsurance();
   };
 
   return (

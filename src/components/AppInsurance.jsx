@@ -1,6 +1,9 @@
 import Form from "./Form";
+import useQuote from "../hooks/useQuote";
 
 const AppInsurance = () => {
+  const { result } = useQuote();
+
   return (
     <>
       <header className="my-12">
@@ -11,6 +14,7 @@ const AppInsurance = () => {
       <main className="bg-white rounded-lg shadow sm:w-2/5 md:w-4/5 lg:w-2/5 sm:mx-auto mx-6 sm:overflow-hidden">
         <div className="px-4 py-8 sm:px-10">
           <Form />
+          {result}
         </div>
       </main>
     </>
