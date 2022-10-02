@@ -11,6 +11,7 @@ const QuoteContext = createContext();
 const QuoteProvider = ({ children }) => {
   const [error, setError] = useState("");
   const [result, setResult] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     brand: "",
     year: "",
@@ -53,7 +54,12 @@ const QuoteProvider = ({ children }) => {
     // Format money
     result = formatMoney(result);
 
-    setResult(result);
+    setLoading(true);
+
+    setTimeout(() => {
+      setResult(result);
+      setLoading(false);
+    }, 1000);
   };
 
   return (
@@ -65,6 +71,7 @@ const QuoteProvider = ({ children }) => {
         data,
         handleChangeData,
         quoteInsurance,
+        loading,
       }}
     >
       {children}
